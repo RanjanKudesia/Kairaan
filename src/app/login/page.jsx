@@ -1,62 +1,122 @@
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { login } from '@/firebase/authentication'; // Adjust this path to your auth.js file
-import { useGlobalState } from '@/context/globalState'; // Adjust this path to your context file
-import { toast } from 'react-toastify';
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { login } from "@/firebase/authentication"; // Adjust this path to your auth.js file
+import { useGlobalState } from "@/context/globalState"; // Adjust this path to your context file
+import { toast } from "react-toastify";
+import "./page.css";
+import { MdOutlineAttachEmail } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { LuLogIn } from "react-icons/lu";
+
 
 const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-    const { setAuth } = useGlobalState();
-    const router = useRouter();
+  const { setAuth } = useGlobalState();
+  const router = useRouter();
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setError('');
-        try {
-            await login(email, password, setAuth);
-            toast.success("Successfully Logged In");
-            router.push('/'); // Redirect to homepage or dashboard after login
-        } catch (error) {
-            toast.error(error.message);
-            setError(error.message);
-        }
+  const [swichPassType, setSwichPassType] = useState("password");
+  function switchPassVisibility() {
+    if (swichPassType === "password") {
+      setSwichPassType("text");
+    } else {
+      setSwichPassType("password");
+    }
+  }
+
+    // Function to handle the redirect
+    const redirectToAnotherPage = () => {
+      router.push('/signup');
     };
+  
 
-    return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-3 rounded-lg shadow-md bg-white">
-                <h1 className="text-2xl font-semibold text-center text-gray-700">Log In</h1>
-                {error && <p className="text-center text-red-500">{error}</p>}
-                <form onSubmit={handleLogin} className="space-y-6">
-                    <div>
-                        <label className="text-sm font-medium text-gray-700">Email:</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-300"
-                        />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700">Password:</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-300"
-                        />
-                    </div>
-                    <button type="submit" className="w-full px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">Log In</button>
-                </form>
-            </div>
-        </div>
-    );
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await login(email, password, setAuth);
+      toast.success("Successfully Logged In");
+      router.push("/"); // Redirect to homepage or dashboard after login
+    } catch (error) {
+      toast.error(error.message);
+      setError(error.message);
+    }
+  };
+
+  return (
+    <div
+      className="p-12 md:p-0 flex justify-center items-center h-screen backgroundImageStyle bg-cover bg-no-repeat relative text-[var(--text-color)]"
+      style={{ backgroundImage: "url(/assets/b2.jpg)" }}
+    >
+      <div
+        className="card w-full max-w-md p-8 space-y-3 rounded-lg bg-[var(--primary-color)] relative shadow-xl bg-cover bg-no-repeat bg-blend-darken"
+        style={{ backgroundImage: "url(/assets/b4.jpg)" }}
+      >
+        <h1 className="text-[40px] font-semibold text-center text-[var(--text-color)]">
+          Login Form
+        </h1>
+        <p className="text-sm text-center">Sign in to your account </p>
+        <br />
+        {error && <p className="text-center text-red-500">{error}</p>}
+        <form onSubmit={handleLogin} className="space-y-6">
+          <div className="flex border-b">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Your Email"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+            />
+            <MdOutlineAttachEmail className="mt-3 mr-3" />
+          </div>
+          <div className="flex border-b">
+            <input
+              type={swichPassType}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Your Password"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+            />
+            <span>
+              {swichPassType === "password" ? (
+                <FaEyeSlash
+                  onClick={switchPassVisibility}
+                  className="mt-3 cursor-pointer mr-3"
+                />
+              ) : (
+                <FaEye
+                  onClick={switchPassVisibility}
+                  className="mt-3 cursor-pointer mr-3"
+                />
+              )}
+            </span>
+          </div>
+
+          <div className="text-right">
+            <span className="text-sm cursor-pointer">Forgot Password?</span>
+          </div>
+          <button
+            type="submit"
+            className="w-full px-4 py-2 text-[var(--text-color)] bg-transparent border rounded-sm focus:outline-none focus:border-[var(--secondary-color)] flex justify-center items-center focus:bg-[var(--text-color)]"
+          >
+            Sign In <LuLogIn className="ml-2"/>
+          </button>
+          <div className="text-center">
+            <p className="text-sm">
+              Don&apos;t have an account?{" "}
+              <span className="cursor-pointer" onClick={redirectToAnotherPage}>Sign Up</span>{" "}
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default LoginPage;
