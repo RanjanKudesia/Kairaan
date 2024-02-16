@@ -1,11 +1,17 @@
-import Image from 'next/image';
+import Image from "next/image";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import Homepage from "./home/page";
+import "./globals.css";
 
 export default function Home() {
   return (
     <div>
-      <div className='flex justify-center items-center w-full h-[100vh]'>
-        <h1 className='text-center font-bold text-5xl'>#KAIRAAN</h1>
+      <div>
+        <Navbar />
+        <Homepage />
+        <Footer/>
       </div>
     </div>
-  )
+  );
 }

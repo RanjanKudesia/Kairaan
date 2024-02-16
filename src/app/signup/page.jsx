@@ -46,14 +46,13 @@ const SignupPage = () => {
     };
   
     return (
+      <section className="relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
       <div
-        className="p-12 md:p-0 flex justify-center items-center h-screen backgroundImageStyle bg-cover bg-no-repeat relative text-[var(--text-color)]"
-        style={{ backgroundImage: "url(/assets/b2.jpg)" }}
-      >
+               className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+               style={{ backgroundImage: "url('/assets/b2.jpg')" }}
+             ></div>
         <div
-          className="card w-full max-w-md p-8 space-y-3 rounded-lg bg-[var(--primary-color)] relative shadow-xl bg-cover bg-no-repeat bg-blend-darken"
-          style={{ backgroundImage: "url(/assets/b4.jpg)" }}
-        >
+          className="card w-full max-w-md p-8 space-y-3 rounded-lg bg-[rgba(0,0,0,0.4)] relative shadow-xl bg-cover bg-no-repeat bg-blend-darken"  >
           <h1 className="text-[40px] font-semibold text-center text-[var(--text-color)]">
             Signup Form
           </h1>
@@ -113,7 +112,7 @@ const SignupPage = () => {
             </div>
           </form>
         </div>
-      </div>
+        </section>
     );
   };
 
