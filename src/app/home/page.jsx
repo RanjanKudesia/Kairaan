@@ -13,7 +13,7 @@ import GallerySlider from "@/components/slider/gallery";
 export default function Homepage() {
   const isMobileScreen = () => {
     if (typeof window !== "undefined") {
-      return window.innerWidth <= 768; // Change this value if needed
+      return window.innerWidth <= 600; // Change this value if needed
     }
 
     return false;
