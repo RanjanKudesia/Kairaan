@@ -11,8 +11,14 @@ import GallerySlider from "@/components/slider/gallery";
 
 
 export default function Homepage() {
-  const isMobileScreen = window.innerWidth <= 600;
+  const isMobileScreen = () => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth <= 768; // Change this value if needed
+    }
 
+    return false;
+  };
+  
    // Function to check if the screen size is mobile
    const isMobile = () => {
     if (typeof window !== "undefined") {
