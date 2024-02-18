@@ -4,13 +4,14 @@ import Footer from "../components/footer";
 import Homepage from "./home/page";
 import "./globals.css";
 
+
 export default function Home() {
   return (
     <div>
       <div>
-        <Navbar />
+          <Navbar />
         <Homepage />
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

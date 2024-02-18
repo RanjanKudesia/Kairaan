@@ -1,93 +1,171 @@
 'use client';
 import { LuLogIn } from "react-icons/lu";
 import "./page.css";
-
+import { useGlobalState } from '@/context/globalState';
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { registrationHandler, checkEmailExists } from '@/firebase/registration';
 
 const RegistrationPage = () => {
-  
-    return (
-      <section className="relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
+  const router = useRouter();
+  const { auth } = useGlobalState();
+
+
+
+
+  const [hasRegistered, setHasRegistered] = useState('');
+  const [name, setName] = useState('');
+  const [college, setCollege] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [rollNumber, setRollNumber] = useState('');
+  const [photo, setPhoto] = useState(null);
+
+
+  useEffect(() => {
+    async function check() {
+      const response = await checkEmailExists(auth?.user?.email)
+      setHasRegistered(response)
+
+    }
+    if (auth.user) {
+      check()
+      setEmail(auth.user.email)
+    }
+
+  }, [auth])
+
+
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+
+    if (!name || !photo) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Submitting Data to Firestore using your handler
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('college', college);
+      formData.append('phone', phone);
+      formData.append('email', email);
+      formData.append('rollNumber', rollNumber);
+      formData.append('photo', photo);
+
+      const result = await registrationHandler(formData);
+
+      if (result.success) {
+        console.log('Registration successful!');
+        router.push('/success');
+      } else {
+        console.error('Registration failed:', result.error);
+        // You might want to display an error message to the user here
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle unexpected errors gracefully 
+    }
+  };
+
+  const redirectToSignUpPage = () => {
+    router.push('/signup');
+  };
+
+  return auth.user ? (hasRegistered ? (
+    <div>you have registered</div>
+  ) : (
+    <section className="relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
       <div
-               className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
-               style={{ backgroundImage: "url('/assets/b2.jpg')" }}
-             ></div>
-        <div
-          className="my-[100px] card w-full md:max-w-[50%] p-8 space-y-3 rounded-lg bg-[rgba(0,0,0,0.4)] relative shadow-xl bg-cover bg-no-repeat bg-blend-darken"  >
-          <h1 className="text-[40px] font-semibold text-center text-[var(--text-color)]">
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+        style={{ backgroundImage: "url('/assets/b2.jpg')" }}
+      ></div>
+      <div
+        className="my-[100px] card w-full md:max-w-[50%] p-8 space-y-3 rounded-lg bg-[rgba(0,0,0,0.4)] relative shadow-xl bg-cover bg-no-repeat bg-blend-darken"
+      >
+        <h1 className="text-[40px] font-semibold text-center text-[var(--text-color)]">
           Registration Form
-          </h1>
-          <p className="text-sm text-center">Fill the form below!</p>
-          <br />
-          <form className="space-y-6">
-            <div className="flex border-b">
-              <input
-                type="text"
-                required
-                placeholder="Your Name"
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-            <div className="flex border-b">
-              <input
-                type="text"
-                required
-                placeholder="Your College Name"
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-            <div className="flex border-b">
-              <input
-                type="number"
-                required
-                placeholder="Your Phone Number"
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-            <div className="flex border-b">
-              <input
-                type="email"
-                required
-                placeholder="Your Email"
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-            <div className="flex border-b">
-              <input
-                type="text"
-                required
-                placeholder="Your Roll Number"
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-            <div className="flex border-b">
-              <input
-                type="number"
-                required
-                placeholder="Your Aadhar Number (last 4 digits)"
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-            <div className="flex border-b">
-              <input
-                type="file"
-                required
-                placeholder="Upload a photo of self "
-                className="w-full px-3 py-2 focus:outline-none bg-transparent"
-              />
-            </div>
-         
-          
-            
-            <button
+        </h1>
+        <p className="text-sm text-center">Fill the form below!</p>
+        <br />
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="flex border-b">
+            <input
+              type="text"
+              required
+              placeholder="Your Name"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="flex border-b">
+            <input
+              type="text"
+              required
+              placeholder="Your College Name"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+              value={college}
+              onChange={(e) => setCollege(e.target.value)}
+            />
+          </div>
+          <div className="flex border-b">
+            <input
+              type="number"
+              required
+              placeholder="Your Phone Number"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          {/* <div className="flex border-b">
+            <input
+              type="email"
+              required
+              placeholder="Your Email"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div> */}
+          <div className="flex border-b">
+            <input
+              type="text"
+              required
+              placeholder="Your Roll Number"
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+              value={rollNumber}
+              onChange={(e) => setRollNumber(e.target.value)}
+            />
+          </div>
+          <div className="flex border-b">
+            <input
+              type="file"
+              required
+              className="w-full px-3 py-2 focus:outline-none bg-transparent"
+              onChange={(e) => setPhoto(e.target.files[0])}
+            />
+          </div>
+          <button
             type="submit"
             className="w-full px-4 py-2 text-[var(--text-color)] bg-transparent border rounded-sm focus:outline-none focus:border-[var(--secondary-color)] flex justify-center items-center focus:bg-[var(--text-color)]"
           >
-            Register Now <LuLogIn className="ml-2"/>
+            Register Now <LuLogIn className="ml-2" />
           </button>
-          </form>
-        </div>
-        </section>
-    );
-  };
+        </form>
+      </div>
+    </section>
+  )) : (
+    <div>
+      <span>sign in to register</span>
+      <button onClick={redirectToSignUpPage}> Signup/Login</button>
+    </div>
+  );
+};
 
 export default RegistrationPage;

@@ -6,14 +6,22 @@ import { HiBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
+import { useGlobalState } from '@/context/globalState'; // Adjust the path
+import { logout } from '@/firebase/authentication';
 
 const Navbar = () => {
   const router = useRouter();
 
- // Function to handle the redirect
- const redirectToAnotherPage = () => {
-  router.push('/registration');
-};
+  // Function to handle the redirect
+  const redirectToAnotherPage = () => {
+    router.push('/registration');
+  };
+
+  const redirectToSignUpPage = () => {
+    router.push('/signup');
+  };
+
+  const { auth, setAuth } = useGlobalState();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,9 +46,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-[999] flex justify-between items-center pt-5 px-4 lg:px-24 sticky top-0 ${
-        isScrolled ? "bg-[var(--primary-color)]" : "bg-primary-color"
-      } text-white py-5`}
+      className={`z-[999] flex justify-between items-center pt-5 px-4 lg:px-24 sticky top-0 ${isScrolled ? "bg-[var(--primary-color)]" : "bg-primary-color"
+        } text-white py-5`}
     >
       <div className="w-1/4">
         <Image src="/assets/logo.png" alt="logo" width={80} height={80} />
@@ -49,27 +56,45 @@ const Navbar = () => {
         {/* Navbar links for larger screens */}
         <ul className="hidden lg:flex justify-between items-center space-x-4">
           <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-           <Link href="/"> Home</Link>
+            <Link href="/"> Home</Link>
           </li>
           <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-          <span onClick={redirectToAnotherPage}> Registration</span>
-          
+            <Link href="/#schedule">Schedule</Link>
           </li>
           <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-          <Link href="/#schedule">Schedule</Link>
-          </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-          <Link href="/"> Nearby Attractions</Link>
- 
-          </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-          <Link href="/#gallery"> Gallery</Link>
-  
-          </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-          <Link href="/#contact">  Contact Us</Link>
+            <Link href="/"> Nearby Attractions</Link>
 
           </li>
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+            <Link href="/#gallery"> Gallery</Link>
+
+          </li>
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+            <Link href="/#contact">  Contact Us</Link>
+
+          </li>
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+            <span onClick={redirectToAnotherPage}> Registration</span>
+          </li>
+
+          {auth.user ? (
+            // User is logged in
+            <>
+
+              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+                <span onClick={() => logout(setAuth)}> Logout</span>
+              </li>
+            </>
+          ) : (
+            // User is not logged in
+            <>
+
+              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+                <span onClick={redirectToSignUpPage}> Signup/Login</span>
+              </li>
+            </>
+          )}
+
         </ul>
 
         {/* Mobile menu icon */}
@@ -89,11 +114,10 @@ const Navbar = () => {
           {/* Mobile dropdown menu */}
           {isMenuOpen && (
             <div
-              className={`${
-                isMenuOpen
-                  ? "translate-x-0"
-                  : "translate-x-full opacity-0 pointer-events-none"
-              } pt-20 h-screen w-1/2 bg-[var(--primary-color)] absolute top-0 right-0 bg-primary-color p-4 shadow-lg transition-transform duration-500`}
+              className={`${isMenuOpen
+                ? "translate-x-0"
+                : "translate-x-full opacity-0 pointer-events-none"
+                } pt-20 h-screen w-1/2 bg-[var(--primary-color)] absolute top-0 right-0 bg-primary-color p-4 shadow-lg transition-transform duration-500`}
             >
               {" "}
               <ul className="flex flex-col space-y-2">
