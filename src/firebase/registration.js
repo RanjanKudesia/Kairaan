@@ -1,5 +1,5 @@
 import { db } from "./config";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where, doc,updateDoc  } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid'; // Import for UUID 
 
@@ -11,6 +11,8 @@ export const registrationHandler = async (formData) => {
       phone: formData.get('phone'),
       email: formData.get('email'),
       rollNumber: formData.get('rollNumber'),
+      status: "processing",
+      code: "",
     };
 
     const photo = formData.get('photo');
@@ -68,5 +70,87 @@ export const checkEmailExists = async (email) => {
     }
   };
 
+  export const getStatusAndCodeByEmail = async (email) => {
+    const registrationsRef = collection(db, "registrations");
+    const emailQuery = query(registrationsRef, where("email", "==", email));
+  
+    try {
+      const querySnapshot = await getDocs(emailQuery);
+  
+      if (querySnapshot.empty) {
+        return null; // Email not found
+      } else {
+        // Assuming there's only one document with the email 
+        // (adjust handling if you might have multiple)
+        const docData = querySnapshot.docs[0].data(); 
+        return {
+          status: docData.status,
+          code: docData.code
+        };
+      }
+    } catch (error) {
+      console.error("Error getting status and code:", error);
+      throw error; // Let the error propagate up for handling
+    }
+  };
+
+
+  export const fetchProcessingRegistrations = async () => {
+    try {
+      const registrationsRef = collection(db, "registrations");
+      const q = query(registrationsRef, where("status", "==", "processing"));
+      const querySnapshot = await getDocs(q);
+  
+      const registrations = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+  
+      return registrations;
+    } catch (error) {
+      console.error("Error fetching processing registrations:", error);
+      throw error; // Re-throw to allow the calling code to handle errors
+    }
+  };
+  
+  export const fetchCompletedRegistrations = async () => {
+    // Similar to fetchProcessingRegistrations, but with
+    // a where clause for 'status' == 'completed'
+    try {
+      const registrationsRef = collection(db, "registrations");
+      const q = query(registrationsRef, where("status", "==", "completed"));
+      const querySnapshot = await getDocs(q);
+  
+      const registrations = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+  
+      return registrations;
+    } catch (error) {
+      console.error("Error fetching completed registrations:", error);
+      throw error; // Re-throw to allow the calling code to handle errors
+    }
+  };
+
+
+  function generateCode() {
+    return Math.floor(1000 + Math.random() * 9000).toString(); // Example: 4-digit random code
+  }
+
+  export const approveRegistration = async (registrationId) => {
+    try {
+      const registrationRef = doc(db, "registrations", registrationId);
+      const code = generateCode();
+  
+      await updateDoc(registrationRef, {
+        status: "completed",
+        code: code
+      });
+    } catch (error) {
+      console.error("Error approving registration:", error);
+      throw error; // Re-throw the error for handling
+    }
+  };
 
 
