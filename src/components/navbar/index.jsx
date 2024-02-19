@@ -21,10 +21,16 @@ const Navbar = () => {
     router.push('/signup');
   };
 
+  const redirectToAdminPage = () => {
+    router.push('/admin');
+  };
+
   const { auth, setAuth } = useGlobalState();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -43,6 +49,22 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    async function check() {
+      if (auth?.user?.email == "final@test.com"){
+
+        setIsAdmin(true)
+      }
+
+
+    }
+    setIsAdmin(false)
+    if (auth.user) {
+      check()
+    }
+
+  }, [auth])
 
   return (
     <nav
@@ -94,6 +116,16 @@ const Navbar = () => {
               </li>
             </>
           )}
+
+          {
+            isAdmin? (
+              <>
+              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+                <span onClick={redirectToAdminPage}> Admin</span>
+              </li>
+              </>
+            ):(null)
+          }
 
         </ul>
 

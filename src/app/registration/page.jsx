@@ -4,7 +4,7 @@ import "./page.css";
 import { useGlobalState } from '@/context/globalState';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from 'react';
-import { registrationHandler, checkEmailExists } from '@/firebase/registration';
+import { registrationHandler, checkEmailExists, getStatusAndCodeByEmail } from '@/firebase/registration';
 
 const RegistrationPage = () => {
   const router = useRouter();
@@ -13,14 +13,31 @@ const RegistrationPage = () => {
 
 
 
-  const [hasRegistered, setHasRegistered] = useState('');
+  const [hasRegistered, setHasRegistered] = useState(false);
   const [name, setName] = useState('');
   const [college, setCollege] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [rollNumber, setRollNumber] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [code, setCode] = useState(null);
 
+
+  useEffect(() => {
+    async function check() {
+      const response = await getStatusAndCodeByEmail(auth?.user?.email)
+      if (response){
+        setStatus(response.status)
+        setCode(response.code)
+      }
+
+    }
+    if (auth.user) {
+      check()
+    }
+
+  }, [hasRegistered])
 
   useEffect(() => {
     async function check() {
@@ -34,6 +51,12 @@ const RegistrationPage = () => {
     }
 
   }, [auth])
+
+  useEffect(() => {
+    if (!auth.user) {
+      router.push('/signup');
+    }
+  }, [auth.user]);
 
 
 
@@ -61,13 +84,14 @@ const RegistrationPage = () => {
 
       if (result.success) {
         console.log('Registration successful!');
-        router.push('/success');
+      setHasRegistered(true)
       } else {
         console.error('Registration failed:', result.error);
         // You might want to display an error message to the user here
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+      setHasRegistered(true)
       // Handle unexpected errors gracefully 
     }
   };
@@ -77,7 +101,11 @@ const RegistrationPage = () => {
   };
 
   return auth.user ? (hasRegistered ? (
-    <div>you have registered</div>
+    status == "completed" ? (
+      <div>your entry code is {code}</div>
+    ):(
+      <div>your request is being processed</div>
+    )
   ) : (
     <section className="relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
       <div
@@ -92,6 +120,10 @@ const RegistrationPage = () => {
         </h1>
         <p className="text-sm text-center">Fill the form below!</p>
         <br />
+        <div className="qr-code-container"> 
+           <img src="/assets/qr-code.png" alt="Payment QR Code" style={{ width: '100px', height: '100px' }} /> 
+           <p>Scan to Pay 300</p> 
+       </div> 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="flex border-b">
             <input
@@ -161,10 +193,7 @@ const RegistrationPage = () => {
       </div>
     </section>
   )) : (
-    <div>
-      <span>sign in to register</span>
-      <button onClick={redirectToSignUpPage}> Signup/Login</button>
-    </div>
+    null
   );
 };
 
