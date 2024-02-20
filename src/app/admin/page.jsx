@@ -2,11 +2,37 @@
 import { useState, useEffect } from 'react';
 import "./page.css";
 import { fetchProcessingRegistrations, fetchCompletedRegistrations, approveRegistration } from '@/firebase/registration';
+import { useGlobalState } from "@/context/globalState";
+
 
 const AdminPage = () => {
   const [processingRegistrations, setProcessingRegistrations] = useState([]);
   const [completedRegistrations, setCompletedRegistrations] = useState([]);
   const [showProcessing, setShowProcessing] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const [filteredProcessing, setFilteredProcessing] = useState([]);
+  const [filteredCompleted, setFilteredCompleted] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+
+  const { auth } = useGlobalState();
+
+
+  useEffect(() => {
+    async function check() {
+      if (auth?.user?.email == "final@test.com"){
+
+        setIsAdmin(true)
+      }
+
+
+    }
+    setIsAdmin(false)
+    if (auth.user) {
+      check()
+    }
+
+  }, [auth])
 
   useEffect(() => {
     const fetchRegistrations = async () => {
@@ -24,6 +50,21 @@ const AdminPage = () => {
     fetchRegistrations();
   }, []);
 
+  useEffect(() => {
+    const lowerSearch = searchTerm.toLowerCase();
+    setFilteredProcessing(processingRegistrations.filter(reg =>
+      reg.name.toLowerCase().includes(lowerSearch)
+    ));
+    setFilteredCompleted(completedRegistrations.filter(reg =>
+      reg.name.toLowerCase().includes(lowerSearch)
+    ));
+  }, [searchTerm, processingRegistrations, completedRegistrations]);
+
+  const handleSearchChange = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+  };
+
+
 
   const handleApprove = async (registrationId) => {
     try {
@@ -39,7 +80,7 @@ const AdminPage = () => {
     }
  };
 
-  return (
+  return isAdmin? (
     
     <div className="admin-page relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
       <div
@@ -56,6 +97,15 @@ const AdminPage = () => {
           Toggle: {showProcessing ? "Processing" : "Completed"}
         </button>
       </div>
+      <div className="toggle-container text-center my-5">
+
+      <input 
+  type="text" 
+  placeholder="Search by name..." 
+  className='bg-[rgba(0,0,0,0.5)] py-2 px-4 rounded-lg mb-4' // Add some styling
+  onChange={(event) => handleSearchChange(event.target.value)}  
+/>
+</div>
 
       {showProcessing ? (
         <section className="processing-registrations">
@@ -75,7 +125,7 @@ const AdminPage = () => {
                         <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Status</th>
                       </tr>
                     </thead>
-                    {processingRegistrations.map(registration => (
+                    {filteredProcessing.map(registration => (
                     <tbody key={registration.id} >
                       <tr className="border-2 rounded-md border-white">
                         <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base">{registration.name}</td>
@@ -111,7 +161,7 @@ const AdminPage = () => {
                       <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Registartion Code</th>
                     </tr>
                   </thead>
-                  {completedRegistrations.map(registration => (
+                  {filteredCompleted.map(registration => (
                   <tbody  key={registration.id}>
                     <tr className="border-2 rounded-md border-white">
                       <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base">{registration.name}</td>
@@ -129,6 +179,10 @@ const AdminPage = () => {
         </section>
       )}
        </div>
+    </div>
+  ):(
+    <div>
+      UNAUTHORIZED ACCESS
     </div>
   );
 };

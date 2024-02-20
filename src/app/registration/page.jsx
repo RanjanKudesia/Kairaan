@@ -41,6 +41,7 @@ const RegistrationPage = () => {
       if (response) {
         setStatus(response.status);
         setCode(response.code);
+        setName(response.name)
       }
     }
     if (auth.user) {
@@ -106,7 +107,7 @@ const RegistrationPage = () => {
   return auth.user ? (
     hasRegistered ? (
       status == "completed" ? (
-        <GeneratedTicket code={code}/>
+        <GeneratedTicket code={code} name={name}/>
         // <div>your entry code is {code}</div>
       ) : (
         <Request/>

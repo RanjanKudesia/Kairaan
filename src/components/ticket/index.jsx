@@ -45,7 +45,7 @@ const GeneratedTicket = (props) => {
 
           <div className="flex justify-center items-center flex-col">
             <p className="font-semibold text-sm md:text-xl">Order by</p> <br />
-            <p className="font-bold -mt-[25px] text-sm md:text-base">Name</p>
+            <p className="font-bold -mt-[25px] text-sm md:text-base">{props.name}</p>
           </div>
 
           <div className="flex justify-center items-center flex-col">

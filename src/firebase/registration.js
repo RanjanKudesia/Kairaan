@@ -85,7 +85,8 @@ export const checkEmailExists = async (email) => {
         const docData = querySnapshot.docs[0].data(); 
         return {
           status: docData.status,
-          code: docData.code
+          code: docData.code,
+          name: docData.name
         };
       }
     } catch (error) {
