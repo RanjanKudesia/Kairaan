@@ -17,6 +17,10 @@ const Navbar = () => {
     router.push('/registration');
   };
 
+  const redirectToAttraction = () => {
+    router.push('/nearbyattractions');
+  };
+
   const redirectToSignUpPage = () => {
     router.push('/signup');
   };
@@ -71,8 +75,9 @@ const Navbar = () => {
       className={`z-[999] flex justify-between items-center pt-5 px-4 lg:px-24 sticky top-0 ${isScrolled ? "bg-[var(--primary-color)]" : "bg-primary-color"
         } text-white py-5`}
     >
-      <div className="w-1/4">
-        <Image src="/assets/logo.png" alt="logo" width={80} height={80} />
+      <div className="w-[25%] flex">
+        <Image src="/assets/logo.png" alt="logo" width={80} height={80} className="object-contain"/>
+        <Image src="/assets/clutcrew.png" alt="logo" width={100} height={100} className="object-contain"/>
       </div>
       <div className="w-[75%] flex justify-end items-center">
         {/* Navbar links for larger screens */}
@@ -84,13 +89,14 @@ const Navbar = () => {
             <Link href="/#schedule">Schedule</Link>
           </li>
           <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
-            <Link href="/"> Nearby Attractions</Link>
+            <span onClick={redirectToAttraction}> Nearby Attractions</span>
 
           </li>
           <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
             <Link href="/#gallery"> Gallery</Link>
 
           </li>
+          
           <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
             <Link href="/#contact">  Contact Us</Link>
 
@@ -149,19 +155,59 @@ const Navbar = () => {
               className={`${isMenuOpen
                 ? "translate-x-0"
                 : "translate-x-full opacity-0 pointer-events-none"
-                } pt-20 h-screen w-1/2 bg-[var(--primary-color)] absolute top-0 right-0 bg-primary-color p-4 shadow-lg transition-transform duration-500`}
+                } pt-20 h-screen w-[60%] bg-[var(--primary-color)] absolute top-0 right-0 bg-primary-color p-4 shadow-lg transition-transform duration-500`}
             >
               {" "}
               <ul className="flex flex-col space-y-2">
                 <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
-                  Home
+                <Link href="/"> Home</Link>
                 </li>
                 <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
-                  About Us
+                <Link href="/#schedule">Schedule</Link>
                 </li>
                 <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
-                  Contact Us
+                <span onClick={redirectToAttraction}> Nearby Attractions</span>
                 </li>
+                <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
+                <Link href="/#gallery"> Gallery</Link>
+                </li>
+
+                <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
+                <Link href="/#contact">  Contact Us</Link>
+                </li>
+
+                <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
+                <span onClick={redirectToAnotherPage}> Registration</span>
+                </li>
+              
+
+                {auth.user ? (
+            // User is logged in
+            <>
+
+              <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
+                <span onClick={() => logout(setAuth)}> Logout</span>
+              </li>
+            </>
+          ) : (
+            // User is not logged in
+            <>
+
+              <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
+                <span onClick={redirectToSignUpPage}> Signup/Login</span>
+              </li>
+            </>
+          )}
+
+          {
+            isAdmin? (
+              <>
+              <li className="hover:text-highlight-color transition duration-300 uppercase tracking-widest text-sm leading-10">
+                <span onClick={redirectToAdminPage}> Admin</span>
+              </li>
+              </>
+            ):(null)
+          }
               </ul>
             </div>
           )}

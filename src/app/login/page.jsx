@@ -50,7 +50,7 @@ const LoginPage = () => {
   return (
     <section className="relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
  <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70"
           style={{ backgroundImage: "url('/assets/b2.jpg')" }}
         ></div>
       <div

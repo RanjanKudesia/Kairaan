@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Jost", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Upright", serif;
+  text-transform: uppercase;
+}
+
+
+

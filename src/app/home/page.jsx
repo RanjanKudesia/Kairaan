@@ -7,6 +7,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { LiaPhoneSquareSolid } from "react-icons/lia";
 import Link from 'next/link';
 import GallerySlider from "@/components/slider/gallery";
+import EventSection from "@/components/event";
 
 
 
@@ -86,7 +87,7 @@ export default function Homepage() {
       {/* Why KAIRAAN? end */}
 
       {/* About Events start */}
-      <section className="relative z-50 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+      {/* <section className="relative z-50 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-center md:mb-5 lg:mb-10">
           WHAT&apos;S COOKIN&apos;?
         </h2>
@@ -148,12 +149,15 @@ export default function Homepage() {
         <button className="text-xs md:text-base mt-5 md:mt-0 flex justify-center items-center uppercase border-2 border-white text-white py-3 px-5 md:py-4 md:px-10 rounded-lg hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)] hover:transition hover:duration-300">
                  View More <FiExternalLink className="ml-1" />
               </button>
-      </section>
+      </section> */}
+
+<EventSection className="z-[9999]"/>
+
       {/* About Events end */}
 
 
       {/* Day-wise Schedule start */}
-      <section id="schedule" className="relative z-50 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+      <section id="schedule" className="relative z-40 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left">
         Day-wise Schedule
         </h2>
@@ -192,7 +196,7 @@ export default function Homepage() {
 
 
       {/* Previous Artists start */}
-      <section className="relative z-50 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+      <section className="relative z-40 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left">
           PREVIOUS ARTISTS
         </h2>
@@ -203,7 +207,7 @@ export default function Homepage() {
 
       {/* MESSAGE FROM ORGANISERS start */}
 
-      <section className="z-50 relative text-white pt-5 min-h-[30vh] flex justify-center items-center flex-col p-8">
+      <section className="z-40 relative text-white pt-5 min-h-[30vh] flex justify-center items-center flex-col p-8">
         <div className="z-50 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px]">
           <h2 className="text-3xl leading-[40px] mb-4 md:mb-0 md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-center">
             MESSAGE FROM ORGANISERS
@@ -225,7 +229,7 @@ export default function Homepage() {
       {/* MESSAGE FROM ORGANISERS end */}
 
       {/* Gallery start */}
-      <section id="gallery" className="relative z-50 px-2 py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+      <section id="gallery" className="relative z-40 px-2 py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left mb-5 ">
           Gallery
         </h2>
@@ -240,7 +244,7 @@ export default function Homepage() {
 {isMobile() ? 
         <GallerySlider /> // Render GallerySlider component on mobile screens
       : 
-        <div class="container px-1 py-2 mx-auto relative z-50">
+        <div class="container px-1 py-2 mx-auto relative z-40">
           <div class="flex flex-wrap -m-1 md:-m-2">
             <div class="flex flex-wrap w-1/2">
               <div class="w-1/2 p-1">
@@ -309,7 +313,7 @@ export default function Homepage() {
       {/* Gallery end */}
 
       {/* Contact Us start */}
-      <section id="contact" className="z-50 relative text-white pt-5 min-h-[30vh] flex justify-center items-center flex-col">
+      <section id="contact" className="z-40 relative text-white pt-5 min-h-[30vh] flex justify-center items-center flex-col">
         {/* <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
           style={{ backgroundImage: "url('/assets/b2.jpg')" }}
