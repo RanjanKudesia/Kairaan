@@ -43,23 +43,23 @@ export default function Homepage() {
       ></section> */}
 
       <section  className="relative z-50">
-      {isMobileScreen ? (
+      {/* {isMobileScreen ? ( */}
         <Image
           src="/assets/mobile-banner.jpg"
           alt="hero-banner"
-          className="w-full h-full object-cover"
+          className="flex md:hidden w-full h-full object-cover"
           width={2000}
           height={1000}
         />
-      ) : (
+      {/* ) : ( */}
         <Image
           src="/assets/desktop-hero-banner.jpg"
           alt="hero-banner"
           width={2000}
           height={1000}
-          className="w-full h-full object-cover"
+          className="hidden md:flex w-full h-full object-cover"
         />
-      )}
+      {/* )} */}
       </section>
 
       {/* HERO SECTION end */}
@@ -233,7 +233,7 @@ export default function Homepage() {
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left mb-5 ">
           Gallery
         </h2>
-        <section class="overflow-hidden text-gray-700 w-full">
+        <section className="overflow-hidden text-gray-700 w-full">
           {/* <style jsx>{`
        .swiper-button-prev:after, .swiper-button-next:after{
         color:black !important;
@@ -244,60 +244,60 @@ export default function Homepage() {
 {isMobile() ? 
         <GallerySlider /> // Render GallerySlider component on mobile screens
       : 
-        <div class="container px-1 py-2 mx-auto relative z-40">
-          <div class="flex flex-wrap -m-1 md:-m-2">
-            <div class="flex flex-wrap w-1/2">
-              <div class="w-1/2 p-1">
+        <div className="container px-1 py-2 mx-auto relative z-40">
+          <div className="flex flex-wrap -m-1 md:-m-2">
+            <div className="flex flex-wrap w-1/2">
+              <div className="w-1/2 p-1">
                 <Image
                   alt="gallery"
-                  class="block object-cover object-center w-full h-full"
+                  className="block object-cover object-center w-full h-full"
                   src="/assets/g3.jpg"
                   width={800}
                   height={800}
                 />
               </div>
-              <div class="w-1/2 p-1">
+              <div className="w-1/2 p-1">
                 <Image
                   alt="gallery"
-                  class="block object-cover object-center w-full h-full"
+                  className="block object-cover object-center w-full h-full"
                   src="/assets/g4.jpg"
                   width={800}
                   height={800}
                 />
               </div>
-              <div class="w-full p-1">
+              <div className="w-full p-1">
                 <Image
                   alt="gallery"
-                  class="block object-cover object-center w-full h-full"
+                  className="block object-cover object-center w-full h-full"
                   src="/assets/g1.jpg"
                   width={800}
                   height={800}
                 />
               </div>
             </div>
-            <div class="flex flex-wrap w-1/2">
-              <div class="w-full p-1">
+            <div className="flex flex-wrap w-1/2">
+              <div className="w-full p-1">
                 <Image
                   alt="gallery"
-                  class="block object-cover object-center w-full h-full"
+                  className="block object-cover object-center w-full h-full"
                   src="/assets/g2.jpg"
                   width={800}
                   height={800}
                 />
               </div>
-              <div class="w-1/2 p-1">
+              <div className="w-1/2 p-1">
                 <Image
                   alt="gallery"
-                  class="block object-cover object-center w-full h-full"
+                  className="block object-cover object-center w-full h-full"
                   src="/assets/g5.jpg"
                   width={800}
                   height={800}
                 />
               </div>
-              <div class="w-1/2 p-1">
+              <div className="w-1/2 p-1">
                 <Image
                   alt="gallery"
-                  class="block object-cover object-center w-full h-full"
+                  className="block object-cover object-center w-full h-full"
                   src="/assets/g7.jpg"
                   width={800}
                   height={800}
