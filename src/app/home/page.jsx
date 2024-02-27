@@ -70,16 +70,12 @@ export default function Homepage() {
         <div className="flex justify-center items-center z-10 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] lg:py-0">
           <div className="relative w-[100%] z-50">
             <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-center">
-              WHY KAIRAAN?
+            KAIRAAN' <span className="align-baseline">24</span>
+
             </h2>
-            <p className="text-center">
-              Experience the grandeur of KAIRAAN, a premier pan-India cultural
-              extravaganza in the eastern subcontinent. Since its 2017
-              inception, KAIRAAN has showcased renowned artists like Ritviz and
-              Lost Stories. This year, at NLUO, join us for the seventh edition,
-              themed Van Gogh&apos;s Starry Nights, promising an artistic
-              odyssey. Save the dates for KAIRAAN&apos;24, where creativity
-              takes center stage!
+            <p className="text-center lg:text-2xl">
+            We are delighted to announce the <span className='font-bold'>7th edition</span> of our Flagship Annual Cultural Fest KAIRAAN, organized by the Cultural Committee of NLUO from March 21 – March 23, 2024. The theme for this year
+is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'’'} Yes, you heard it right! This edition promises to give its audience an immersive and enchanting experience that will transport you to the vibrant world of the Dutch painter. Hop on with us as we take you on this artistic odyssey.
             </p>
           </div>
         </div>
@@ -213,16 +209,7 @@ export default function Homepage() {
             MESSAGE FROM ORGANISERS
           </h2>
           <p className="text-center">
-            For us, KAIRAAN is more than just an event it&apos;s a journey! It
-            serves as a platform for our team to achieve significant milestones.
-            In 2023, KAIRAAN was a big success and left a mark throughout India,
-            this year we want to make it bigger and better than ever before. We
-            are expanding our horizons by introducing new events in different
-            spheres. We are collaborating with some of the BIGGEST ARTISTS in
-            the country to make this year another success story! We extend our
-            heartfelt welcome to you to be a part of KAIRAAN&apos;24 with a
-            promise it will be an experience you cherish for years to come.
-            Regards.
+          For us, KAIRAAN is more than just an event—it's a journey! It serves as a platform for our team to achieve significant milestones. The 2023 KAIRAAN with its immeasurable success has given us the momentum to make the 2024 edition bigger and better than previously imagined. We are expanding our horizons by introducing new events in different spheres, collaborating with some of the BIGGEST ARTISTS in the country to make this a year to remember! We extend our heartfelt welcome to you to be a part of KAIRAAN’24 with a promise that it will be an experience you cherish for years to come.
           </p>
         </div>
       </section>
