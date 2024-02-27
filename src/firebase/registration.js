@@ -134,6 +134,26 @@ export const checkEmailExists = async (email) => {
     }
   };
 
+  export const fetchCheckedInRegistrations = async () => {
+    // Similar to fetchProcessingRegistrations, but with
+    // a where clause for 'status' == 'completed'
+    try {
+      const registrationsRef = collection(db, "registrations");
+      const q = query(registrationsRef, where("status", "==", "checked-in"));
+      const querySnapshot = await getDocs(q);
+  
+      const registrations = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+  
+      return registrations;
+    } catch (error) {
+      console.error("Error fetching checked in registrations:", error);
+      throw error; // Re-throw to allow the calling code to handle errors
+    }
+  };
+
 
   function generateCode() {
     return Math.floor(1000 + Math.random() * 9000).toString(); // Example: 4-digit random code
@@ -150,6 +170,19 @@ export const checkEmailExists = async (email) => {
       });
     } catch (error) {
       console.error("Error approving registration:", error);
+      throw error; // Re-throw the error for handling
+    }
+  };
+
+  export const checkInUser = async (registrationId) => {
+    try {
+      const registrationRef = doc(db, "registrations", registrationId);
+  
+      await updateDoc(registrationRef, {
+        status: "checked-in"
+      });
+    } catch (error) {
+      console.error("Error checking in user:", error);
       throw error; // Re-throw the error for handling
     }
   };

@@ -58,13 +58,16 @@ const RegistrationPage = () => {
       check();
       setEmail(auth.user.email);
     }
-  }, [auth]);
-
-  useEffect(() => {
-    if (!auth.user) {
+    else{
       router.push("/signup");
     }
-  }, [auth.user]);
+  }, [auth]);
+
+  // useEffect(() => {
+  //   if (!auth.user) {
+  //     router.push("/signup");
+  //   }
+  // }, [auth.user]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -196,6 +199,7 @@ const RegistrationPage = () => {
                   setPhoto(e.target.files[0]);
                   handleFileChange(e);
                 }}
+                accept="image/*"
               />
               <div className="bg-transparent rounded-md shadow-md px-4 py-2 flex items-center justify-center flex-col">
         <LuUpload className="text-5xl mr-2 text-[#c4c4c4]" />

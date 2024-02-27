@@ -16,6 +16,14 @@ h6 {
   text-transform: uppercase;
 }
 
+.toggle-container button {
+  margin-right: 20px; /* Add spacing */
+}
+
+.toggle-container button.active {
+  background-color: #557CFF; /* Example highlight color */
+  color: white;          
+}
 
 
 
