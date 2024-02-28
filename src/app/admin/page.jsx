@@ -60,10 +60,14 @@ const AdminPage = () => {
     ));
     setFilteredCompleted(completedRegistrations.filter(reg =>
       reg.name.toLowerCase().includes(lowerSearch)
-    ));
+    ).concat(completedRegistrations.filter(reg =>
+      reg.code.toLowerCase().includes(lowerSearch) 
+    )));
     setFilteredCheckedIn(checkedInRegistrations.filter(reg =>
-      reg.name.toLowerCase().includes(lowerSearch)
-    ));
+      reg.name.toLowerCase().includes(lowerSearch) 
+    ).concat(checkedInRegistrations.filter(reg =>
+      reg.code.toLowerCase().includes(lowerSearch) 
+    )));
   }, [searchTerm, processingRegistrations, completedRegistrations, checkedInRegistrations]);
 
   const handleSearchChange = (newSearchTerm) => {

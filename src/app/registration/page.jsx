@@ -49,16 +49,23 @@ const RegistrationPage = () => {
     }
   }, [hasRegistered]);
 
+
+  const [firstRun,setFirstRun] = useState(true);
+
   useEffect(() => {
     async function check() {
       const response = await checkEmailExists(auth?.user?.email);
       setHasRegistered(response);
     }
+    if (firstRun) {
+      setFirstRun(false);
+      return;
+    }
     if (auth.user) {
       check();
       setEmail(auth.user.email);
     }
-    else{
+    else {
       router.push("/signup");
     }
   }, [auth]);
@@ -110,11 +117,11 @@ const RegistrationPage = () => {
   return auth.user ? (
     hasRegistered ? (
       status == "completed" ? (
-        <GeneratedTicket code={code} name={name}/>
+        <GeneratedTicket code={code} name={name} />
         // <div>your entry code is {code}</div>
       ) : (
-        <Request/>
-        
+        <Request />
+
 
         // <div>your request is being processed</div>
       )
@@ -202,11 +209,11 @@ const RegistrationPage = () => {
                 accept="image/*"
               />
               <div className="bg-transparent rounded-md shadow-md px-4 py-2 flex items-center justify-center flex-col">
-        <LuUpload className="text-5xl mr-2 text-[#c4c4c4]" />
-        <span className="text-[#c4c4c4] text-sm mt-2">
-          {photoName ? photoName : 'Upload a Payment Receipt!'}
-        </span>
-      </div>
+                <LuUpload className="text-5xl mr-2 text-[#c4c4c4]" />
+                <span className="text-[#c4c4c4] text-sm mt-2">
+                  {photoName ? photoName : 'Upload a Payment Receipt!'}
+                </span>
+              </div>
             </div>
 
             <button
