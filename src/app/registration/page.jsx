@@ -12,6 +12,7 @@ import {
   getStatusAndCodeByEmail,
 } from "@/firebase/registration";
 import GeneratedTicket from "@/components/ticket";
+import Link from "next/link";
 
 const RegistrationPage = () => {
   const router = useRouter();
@@ -27,6 +28,10 @@ const RegistrationPage = () => {
   const [status, setStatus] = useState(null);
   const [code, setCode] = useState(null);
   const [photoName, setPhotoName] = useState('');
+
+
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -57,11 +62,11 @@ const RegistrationPage = () => {
       const response = await checkEmailExists(auth?.user?.email);
       setHasRegistered(response);
     }
-    if (firstRun) {
-      setFirstRun(false);
-      return;
-    }
-    if (auth.user) {
+    // if (firstRun) {
+    //   setFirstRun(false);
+    //   return;
+    // }
+    if (auth?.user) {
       check();
       setEmail(auth.user.email);
     }
@@ -79,11 +84,15 @@ const RegistrationPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!name || !photo) {
-      alert("Please fill in all required fields.");
+    if (!acceptedTerms) {
+      alert("You must accept the terms and conditions to proceed.");
       return;
     }
 
+    if (!name || !photo) {
+      alert("Please fill in all required fields.");
+      return;
+    };
     // Submitting Data to Firestore using your handler
     try {
       const formData = new FormData();
@@ -135,7 +144,11 @@ const RegistrationPage = () => {
           <h1 className="text-[40px] font-semibold text-center text-[var(--text-color)]">
             Registration Form
           </h1>
-          <p className="text-sm text-center">Fill the form below!</p>
+          <p className="text-sm text-center">General Pass 
+An all-inclusive pass for all the activities throughout the all three days of the fest. which includes entry into the Artist Night, all the performances, access to food stalls, and other fun activities throughout the Fest.
+<br />
+If you would like to participate in any of our Flagship Events such as Dance Competition, Fashion Show, Talent Hunt etc., then you must submit a completed Google Form along with your payment details. Please note that there are additional costs associated with participating in these events so make sure to check out the details on the rulebook before submitting your application.
+</p>
           <br />
           <div className="qr-code-container text-center">
             <img
@@ -215,6 +228,19 @@ const RegistrationPage = () => {
                 </span>
               </div>
             </div>
+            <div className="flex items-center justify-center mb-4">
+  <input
+    id="termsAndConditions"
+    type="checkbox"
+    required
+    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2"
+    checked={acceptedTerms}
+    onChange={(e) => setAcceptedTerms(e.target.checked)}
+  />
+  <label htmlFor="termsAndConditions" className="ml-2 text-sm font-medium text-gray-100">
+    I accept the <Link href="/policy" className="text-blue-600 hover:underline">Terms and Conditions</Link>
+  </label>
+</div>
 
             <button
               type="submit"

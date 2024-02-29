@@ -57,11 +57,8 @@ const Navbar = () => {
   useEffect(() => {
     async function check() {
       if (auth?.user?.email == "final@test.com"){
-
         setIsAdmin(true)
       }
-
-
     }
     setIsAdmin(false)
     if (auth.user) {
@@ -69,15 +66,18 @@ const Navbar = () => {
     }
 
   }, [auth])
+  // ${isScrolled ? "bg-[var(--primary-color)]" : "bg-primary-color"
 
   return (
     <nav
-      className={`z-[999] flex justify-between items-center pt-5 px-4 lg:px-24 sticky top-0 ${isScrolled ? "bg-[var(--primary-color)]" : "bg-primary-color"
-        } text-white py-5`}
+      className={`z-[999] flex justify-between items-center pt-5 px-4 lg:px-24 sticky top-0 
+      bg-[var(--primary-color)] text-white py-5`}
     >
       <div className="w-[25%] flex">
         <Image src="/assets/logo.png" alt="logo" width={80} height={80} className="object-contain"/>
+        <Link href="https://www.instagram.com/cultcrew.nluo?igsh=NDNoaDQ1eDhsMTI3" target="_blank">
         <Image src="/assets/clutcrew.png" alt="logo" width={100} height={100} className="object-contain"/>
+        </Link>
       </div>
       <div className="w-[75%] flex justify-end items-center">
         {/* Navbar links for larger screens */}

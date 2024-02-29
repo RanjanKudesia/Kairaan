@@ -14,8 +14,8 @@ const RegistrationRequest = () => {
           Your Request is Being Processed!
         </h1>
         <p className="text-lg text-center">
-          We will be in touch with you within the next 24 hours, Thankyou for
-          Registarton!
+          We have received your request, your ticket will be generated and be available here within 24hrs.
+          In case of any query please reach out to us at <span className="text-xl">thecultcrew@nluo.ac.in</span>
         </p>
         <br />
       </div>

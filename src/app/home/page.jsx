@@ -208,7 +208,7 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
           <h2 className="text-3xl leading-[40px] mb-4 md:mb-0 md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-center">
             MESSAGE FROM ORGANISERS
           </h2>
-          <p className="text-center">
+          <p className="text-center lg:text-2xl">
           For us, KAIRAAN is more than just an event—it's a journey! It serves as a platform for our team to achieve significant milestones. The 2023 KAIRAAN with its immeasurable success has given us the momentum to make the 2024 edition bigger and better than previously imagined. We are expanding our horizons by introducing new events in different spheres, collaborating with some of the BIGGEST ARTISTS in the country to make this a year to remember! We extend our heartfelt welcome to you to be a part of KAIRAAN’24 with a promise that it will be an experience you cherish for years to come.
           </p>
         </div>
