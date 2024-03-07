@@ -9,12 +9,12 @@
 export default function Policy() {
     return (
         <section className="relative text-white pt-5 min-h-screen flex justify-center items-center flex-col bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] p-8 bg-opacity-50">
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
-                style={{ backgroundImage: "url('/assets/b2.jpg')" }}
-            ></div>
-            <div className="z-10 p-4 bg-white/10 backdrop-blur-md rounded-lg max-w-4xl text-justify">
-                <h2 className="text-2xl font-bold text-center">Equity Policy</h2>
+             <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70 top-0 z-0"
+        style={{ backgroundImage: "url('/assets/b2.jpg')" }}
+      ></div>
+            <div className="z-10 p-5 md:p-10 bg-[rgba(0,0,0,0.3)] backdrop-blur-md rounded-lg max-w-4xl text-justify">
+                <h2 className="text-2xl md:text-4xl font-bold text-center">Equity Policy</h2>
                 <div className="mt-4">
                     <h3 className="text-xl font-semibold">CLAUSE 1: PURPOSE</h3>
                     <p>We believe our community should be truly open for everyone. Hence, we are committed to providing a friendly, safe, inclusive, and welcoming environment for all, regardless of gender identity, sexual orientation, caste, disability, place of birth, ethnicity, or religion.</p>

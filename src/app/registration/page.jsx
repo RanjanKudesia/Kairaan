@@ -152,10 +152,9 @@ If you would like to participate in any of our Flagship Events such as Dance Com
           <br />
           <div className="qr-code-container text-center">
             <img
-              src="/assets/qr-code.png"
+              src="/assets/qrcode.jpg"
               alt="Payment QR Code"
-              style={{ width: "100px", height: "100px" }}
-              className="mx-auto"
+              className="mx-auto w-full h-48 mb-5 object-contain"
             />
             <p>Scan to Pay 300</p>
           </div>

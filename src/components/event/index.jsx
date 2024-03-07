@@ -64,7 +64,7 @@ const EventSection = () => {
       src:"/assets/b7.jpg",
     },
     {
-      date: "22",
+      date: "21",
       title: "TARANG",
       subtitle: "(Talent Show for Persons with Disabilities)",
       description: "TARANG is one of the most important events of KAIRAAN that aims to ignite inclusivity and celebrate the artistic spirit of specially-abled individuals. The event explores an array of fun activities, ranging from games to singing and dancing competitions, witnessing exceptional performances. It encourages individuals to go the extra mile by overcoming their reservations and showcasing their true selves. Last year, TARANG observed active participation from schools in and around Bhubaneswar and Cuttack. As an event, it provides an amazing opportunity for its participants to strengthen their interaction with society.",

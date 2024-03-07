@@ -5,11 +5,9 @@ import { FiExternalLink } from "react-icons/fi";
 import Slider from "@/components/slider";
 import { HiOutlineMail } from "react-icons/hi";
 import { LiaPhoneSquareSolid } from "react-icons/lia";
-import Link from 'next/link';
+import Link from "next/link";
 import GallerySlider from "@/components/slider/gallery";
 import EventSection from "@/components/event";
-
-
 
 export default function Homepage() {
   const isMobileScreen = () => {
@@ -19,9 +17,9 @@ export default function Homepage() {
 
     return false;
   };
-  
-   // Function to check if the screen size is mobile
-   const isMobile = () => {
+
+  // Function to check if the screen size is mobile
+  const isMobile = () => {
     if (typeof window !== "undefined") {
       return window.innerWidth <= 768; // Change this value if needed
     }
@@ -29,21 +27,20 @@ export default function Homepage() {
     return false;
   };
 
-
   return (
     <div className="text-white -mt-[35%] md:-mt-[20%] lg:-mt-[9%] bg-gradient-to-r from-[#2b4992] via-[#87a1c6] to-[#3f5294] bg-opacity-50 relative z-50">
-       <div
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70 top-0 z-0"
-          style={{ backgroundImage: "url('/assets/b2.jpg')" }}
-        ></div>
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70 top-0 z-0"
+        style={{ backgroundImage: "url('/assets/b2.jpg')" }}
+      ></div>
       {/* HERO SECTION start */}
       {/* <section
         className="min-h-[110vh] bg-cover bg-no-repeat"
         style={{ backgroundImage: "url(/assets/hero-banner.jpg)" }}
       ></section> */}
 
-      <section  className="relative z-50">
-      {/* {isMobileScreen ? ( */}
+      <section className="relative z-50">
+        {/* {isMobileScreen ? ( */}
         <Image
           src="/assets/mobile-banner.jpg"
           alt="hero-banner"
@@ -51,7 +48,7 @@ export default function Homepage() {
           width={2000}
           height={1000}
         />
-      {/* ) : ( */}
+        {/* ) : ( */}
         <Image
           src="/assets/desktop-hero-banner.jpg"
           alt="hero-banner"
@@ -59,7 +56,7 @@ export default function Homepage() {
           height={1000}
           className="hidden md:flex w-full h-full object-cover"
         />
-      {/* )} */}
+        {/* )} */}
       </section>
 
       {/* HERO SECTION end */}
@@ -70,12 +67,18 @@ export default function Homepage() {
         <div className="flex justify-center items-center z-10 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] lg:py-0">
           <div className="relative w-[100%] z-50">
             <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-center">
-            KAIRAAN' <span className="align-baseline">24</span>
-
+              KAIRAAN' <span className="align-baseline">24</span>
             </h2>
             <p className="text-center lg:text-2xl">
-            We are delighted to announce the <span className='font-bold'>7th edition</span> of our Flagship Annual Cultural Fest KAIRAAN, organized by the Cultural Committee of NLUO from March 21 – March 23, 2024. The theme for this year
-is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'’'} Yes, you heard it right! This edition promises to give its audience an immersive and enchanting experience that will transport you to the vibrant world of the Dutch painter. Hop on with us as we take you on this artistic odyssey.
+              We are delighted to announce the{" "}
+              <span className="font-bold">7th edition</span> of our Flagship
+              Annual Cultural Fest KAIRAAN, organized by the Cultural Committee
+              of NLUO from March 21 – March 23, 2024. The theme for this year is
+              inspired by the enchanting theme of {"‘"}Van Gogh{"’"}s Starry
+              Nights.{"’"} Yes, you heard it right! This edition promises to
+              give its audience an immersive and enchanting experience that will
+              transport you to the vibrant world of the Dutch painter. Hop on
+              with us as we take you on this artistic odyssey.
             </p>
           </div>
         </div>
@@ -147,49 +150,73 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
               </button>
       </section> */}
 
-<EventSection className="z-[9999]"/>
+      <EventSection className="z-[9999]" />
 
       {/* About Events end */}
 
-
       {/* Day-wise Schedule start */}
-      <section id="schedule" className="relative z-40 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+      <section
+        id="schedule"
+        className="relative z-40 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col"
+      >
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left">
-        Day-wise Schedule
+          Day-wise Schedule
         </h2>
+          <p className="text-2xl leading-10">Coming soon!</p>
+        {/* <table className="border-2 rounded-md border-white text-center mt-10">
+          <thead className="border-2 rounded-md border-white text-xl uppercase">
+            <tr>
+              <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Day 1
+              </th>
+              <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Day 2
+              </th>
+              <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Day 3
+              </th>
+            </tr>
+          </thead>
 
-        <table className="border-2 rounded-md border-white text-center mt-10">
-  <thead className="border-2 rounded-md border-white text-xl uppercase">
-    <tr>
-      <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Day 1</th>
-      <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Day 2</th>
-      <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Day 3</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr className="border-2 rounded-md border-white">
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Event Name <br/> Time</td>
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Event Name <br/> Time</td>
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Event Name <br/> Time</td>
-    </tr>
-    <tr className="border-2 rounded-md border-white">
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Stand up Performance by __ <br/>(6:00 PM – 7:30 PM)</td>
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">DJ Night with DJ __ <br/> (8:00 PM – 10:00 PM)</td>
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Star Night with __ <br/> (10:00 PM – 11:59 PM)</td>
-    </tr>
-    <tr className="border-2 rounded-md border-white">
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Event Name <br/> Time</td>
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Event Name <br/> Time</td>
-      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">Event Name <br/> Time</td>
-    </tr>
-  </tbody>
-</table>
-
-
+          <tbody>
+            <tr className="border-2 rounded-md border-white">
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Event Name <br /> Time
+              </td>
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Event Name <br /> Time
+              </td>
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Event Name <br /> Time
+              </td>
+            </tr>
+            <tr className="border-2 rounded-md border-white">
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Stand up Performance by __ <br />
+                (6:00 PM – 7:30 PM)
+              </td>
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                DJ Night with DJ __ <br /> (8:00 PM – 10:00 PM)
+              </td>
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Star Night with __ <br /> (10:00 PM – 11:59 PM)
+              </td>
+            </tr>
+            <tr className="border-2 rounded-md border-white">
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Event Name <br /> Time
+              </td>
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Event Name <br /> Time
+              </td>
+              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+                Event Name <br /> Time
+              </td>
+            </tr>
+          </tbody>
+        </table> */}
       </section>
       {/* Day-wise Schedule end */}
-
 
       {/* Previous Artists start */}
       <section className="relative z-40 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
@@ -209,14 +236,25 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
             MESSAGE FROM ORGANISERS
           </h2>
           <p className="text-center lg:text-2xl">
-          For us, KAIRAAN is more than just an event—it's a journey! It serves as a platform for our team to achieve significant milestones. The 2023 KAIRAAN with its immeasurable success has given us the momentum to make the 2024 edition bigger and better than previously imagined. We are expanding our horizons by introducing new events in different spheres, collaborating with some of the BIGGEST ARTISTS in the country to make this a year to remember! We extend our heartfelt welcome to you to be a part of KAIRAAN’24 with a promise that it will be an experience you cherish for years to come.
+            For us, KAIRAAN is more than just an event—it's a journey! It serves
+            as a platform for our team to achieve significant milestones. The
+            2023 KAIRAAN with its immeasurable success has given us the momentum
+            to make the 2024 edition bigger and better than previously imagined.
+            We are expanding our horizons by introducing new events in different
+            spheres, collaborating with some of the BIGGEST ARTISTS in the
+            country to make this a year to remember! We extend our heartfelt
+            welcome to you to be a part of KAIRAAN’24 with a promise that it
+            will be an experience you cherish for years to come.
           </p>
         </div>
       </section>
       {/* MESSAGE FROM ORGANISERS end */}
 
       {/* Gallery start */}
-      <section id="gallery" className="relative z-40 px-2 py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+      <section
+        id="gallery"
+        className="relative z-40 px-2 py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col"
+      >
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left mb-5 ">
           Gallery
         </h2>
@@ -228,79 +266,81 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
        }
       `}</style> */}
 
-{isMobile() ? 
-        <GallerySlider /> // Render GallerySlider component on mobile screens
-      : 
-        <div className="container px-1 py-2 mx-auto relative z-40">
-          <div className="flex flex-wrap -m-1 md:-m-2">
-            <div className="flex flex-wrap w-1/2">
-              <div className="w-1/2 p-1">
-                <Image
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full"
-                  src="/assets/g3.jpg"
-                  width={800}
-                  height={800}
-                />
-              </div>
-              <div className="w-1/2 p-1">
-                <Image
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full"
-                  src="/assets/g4.jpg"
-                  width={800}
-                  height={800}
-                />
-              </div>
-              <div className="w-full p-1">
-                <Image
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full"
-                  src="/assets/g1.jpg"
-                  width={800}
-                  height={800}
-                />
+          {isMobile() ? (
+            <GallerySlider /> // Render GallerySlider component on mobile screens
+          ) : (
+            <div className="container px-1 py-2 mx-auto relative z-40">
+              <div className="flex flex-wrap -m-1 md:-m-2">
+                <div className="flex flex-wrap w-1/2">
+                  <div className="w-1/2 p-1">
+                    <Image
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full"
+                      src="/assets/g3.jpg"
+                      width={800}
+                      height={800}
+                    />
+                  </div>
+                  <div className="w-1/2 p-1">
+                    <Image
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full"
+                      src="/assets/g4.jpg"
+                      width={800}
+                      height={800}
+                    />
+                  </div>
+                  <div className="w-full p-1">
+                    <Image
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full"
+                      src="/assets/g1.jpg"
+                      width={800}
+                      height={800}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-wrap w-1/2">
+                  <div className="w-full p-1">
+                    <Image
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full"
+                      src="/assets/g2.jpg"
+                      width={800}
+                      height={800}
+                    />
+                  </div>
+                  <div className="w-1/2 p-1">
+                    <Image
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full"
+                      src="/assets/g5.jpg"
+                      width={800}
+                      height={800}
+                    />
+                  </div>
+                  <div className="w-1/2 p-1">
+                    <Image
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full"
+                      src="/assets/g7.jpg"
+                      width={800}
+                      height={800}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex flex-wrap w-1/2">
-              <div className="w-full p-1">
-                <Image
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full"
-                  src="/assets/g2.jpg"
-                  width={800}
-                  height={800}
-                />
-              </div>
-              <div className="w-1/2 p-1">
-                <Image
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full"
-                  src="/assets/g5.jpg"
-                  width={800}
-                  height={800}
-                />
-              </div>
-              <div className="w-1/2 p-1">
-                <Image
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full"
-                  src="/assets/g7.jpg"
-                  width={800}
-                  height={800}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-}
+          )}
         </section>
       </section>
       {/* Gallery end */}
 
       {/* Contact Us start */}
-      <section id="contact" className="z-40 relative text-white pt-5 min-h-[30vh] flex justify-center items-center flex-col">
+      <section
+        id="contact"
+        className="z-40 relative text-white pt-5 min-h-[30vh] flex justify-center items-center flex-col"
+      >
         {/* <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
           style={{ backgroundImage: "url('/assets/b2.jpg')" }}
@@ -360,7 +400,7 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
             </div>
           </div> */}
 
-<div className="flex justify-center items-center flex-wrap w-full">
+          <div className="flex justify-center items-center flex-wrap w-full">
             <div className="w-[calc(100%-22px)] md:w-[calc(50%-22px)] xl:w-[calc(25%-22px)] shadow-lg card m-1 flex justify-start items-center flex-col px-5 py-10 bg-[rgba(0,0,0,0.3)] rounded-xl">
               <div>
                 <Image
@@ -376,14 +416,19 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
                 <p className="text-xl font-semibold mt-5">Preyansh Gupta</p>
                 <p className="text-lg ">Convenor</p>
                 <div className="flex justify-center items-center mt-2">
-                <Link href="mailto:20bba035@nluo.ac.in" className="flex items-center text-sm">
-                  <HiOutlineMail className="text-lg mr-2" />
-                </Link>
-                <Link href="tel:+917999935624" className="flex items-center text-sm">
-                  <LiaPhoneSquareSolid className="text-lg mr-2" />{" "}
-                </Link>
+                  <Link
+                    href="mailto:20bba035@nluo.ac.in"
+                    className="flex items-center text-sm"
+                  >
+                    <HiOutlineMail className="text-lg mr-2" />
+                  </Link>
+                  <Link
+                    href="tel:+917999935624"
+                    className="flex items-center text-sm"
+                  >
+                    <LiaPhoneSquareSolid className="text-lg mr-2" />{" "}
+                  </Link>
                 </div>
-              
               </div>
             </div>
 
@@ -402,14 +447,19 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
                 <p className="text-xl font-semibold mt-5">Shamil Adeeb</p>
                 <p className="text-lg ">Co-Convenor</p>
                 <div className="flex justify-center items-center mt-2">
-                <Link href="mailto:21bba042@nluo.ac.in" className="flex items-center text-sm">
-                  <HiOutlineMail className="text-lg mr-2" />
-                </Link>
-                <Link href="tel:+917504637660" className="flex items-center text-sm">
-                  <LiaPhoneSquareSolid className="text-lg mr-2" />{" "}
-                </Link>
+                  <Link
+                    href="mailto:21bba042@nluo.ac.in"
+                    className="flex items-center text-sm"
+                  >
+                    <HiOutlineMail className="text-lg mr-2" />
+                  </Link>
+                  <Link
+                    href="tel:+917504637660"
+                    className="flex items-center text-sm"
+                  >
+                    <LiaPhoneSquareSolid className="text-lg mr-2" />{" "}
+                  </Link>
                 </div>
-              
               </div>
             </div>
 
@@ -428,14 +478,19 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
                 <p className="text-xl font-semibold mt-5">Shantanu Bhatnagar</p>
                 <p className="text-lg ">Co-Convenor</p>
                 <div className="flex justify-center items-center mt-2">
-                <Link href="mailto:21bba043@nluo.ac.in" className="flex items-center text-sm">
-                  <HiOutlineMail className="text-lg mr-2" />
-                </Link>
-                <Link href="tel:+917987557358" className="flex items-center text-sm">
-                  <LiaPhoneSquareSolid className="text-lg mr-2" />{" "}
-                </Link>
+                  <Link
+                    href="mailto:21bba043@nluo.ac.in"
+                    className="flex items-center text-sm"
+                  >
+                    <HiOutlineMail className="text-lg mr-2" />
+                  </Link>
+                  <Link
+                    href="tel:+917987557358"
+                    className="flex items-center text-sm"
+                  >
+                    <LiaPhoneSquareSolid className="text-lg mr-2" />{" "}
+                  </Link>
                 </div>
-              
               </div>
             </div>
 
@@ -454,16 +509,22 @@ is inspired by the enchanting theme of {'‘'}Van Gogh{'’'}s Starry Nights.{'�
                 <p className="text-xl font-semibold mt-5">Shakti Soni</p>
                 <p className="text-lg ">Secretary</p>
                 <div className="flex justify-center items-center mt-2">
-                <Link href="mailto:21ba088@nluo.ac.in" className="flex items-center text-sm">
-                  <HiOutlineMail className="text-lg mr-2" />
-                </Link>
-                <Link href="tel:+917077916257" className="flex items-center text-sm"><LiaPhoneSquareSolid className="text-lg mr-2" /></Link> 
-               
+                  <Link
+                    href="mailto:21ba088@nluo.ac.in"
+                    className="flex items-center text-sm"
+                  >
+                    <HiOutlineMail className="text-lg mr-2" />
+                  </Link>
+                  <Link
+                    href="tel:+917077916257"
+                    className="flex items-center text-sm"
+                  >
+                    <LiaPhoneSquareSolid className="text-lg mr-2" />
+                  </Link>
                 </div>
               </div>
             </div>
-         
-        </div>
+          </div>
         </div>
       </section>
       {/* Contact Us end */}

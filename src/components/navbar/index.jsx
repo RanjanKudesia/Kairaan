@@ -70,38 +70,38 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-[999] flex justify-between items-center pt-5 px-4 lg:px-24 sticky top-0 
+      className={`z-[999] flex justify-between items-center pt-5 px-4 md:px-5 2xl:px-24 sticky top-0 
       bg-[var(--primary-color)] text-white py-5`}
     >
       <div className="w-[25%] flex">
         <Image src="/assets/logo.png" alt="logo" width={80} height={80} className="object-contain"/>
         <Link href="https://www.instagram.com/cultcrew.nluo?igsh=NDNoaDQ1eDhsMTI3" target="_blank">
-        <Image src="/assets/clutcrew.png" alt="logo" width={100} height={100} className="object-contain"/>
+        <Image src="/assets/clutcrew.png" alt="logo" width={100} height={100} className="object-contain hidden sm:block"/>
         </Link>
       </div>
       <div className="w-[75%] flex justify-end items-center">
         {/* Navbar links for larger screens */}
         <ul className="hidden lg:flex justify-between items-center space-x-4">
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
             <Link href="/"> Home</Link>
           </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
             <Link href="/#schedule">Schedule</Link>
           </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
             <span onClick={redirectToAttraction}> Nearby Attractions</span>
 
           </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
             <Link href="/#gallery"> Gallery</Link>
 
           </li>
           
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
             <Link href="/#contact">  Contact Us</Link>
 
           </li>
-          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+          <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
             <span onClick={redirectToAnotherPage}> Registration</span>
           </li>
 
@@ -109,7 +109,7 @@ const Navbar = () => {
             // User is logged in
             <>
 
-              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
                 <span onClick={() => logout(setAuth)}> Logout</span>
               </li>
             </>
@@ -117,7 +117,7 @@ const Navbar = () => {
             // User is not logged in
             <>
 
-              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
                 <span onClick={redirectToSignUpPage}> Signup/Login</span>
               </li>
             </>
@@ -126,7 +126,7 @@ const Navbar = () => {
           {
             isAdmin? (
               <>
-              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer">
+              <li className="text-sm hover:text-highlight-color transition duration-300 px-4 uppercase tracking-widest cursor-pointer md:text-[12px] 2xl:text-sm">
                 <span onClick={redirectToAdminPage}> Admin</span>
               </li>
               </>
