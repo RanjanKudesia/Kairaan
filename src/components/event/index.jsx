@@ -58,27 +58,34 @@ const EventSection = () => {
   const events = [
     {
       date: "21",
-      title: "Camp Rock",
-      subtitle: "(Battle of Bands)",
-      description: "Get ready to unleash the thunder at KAIRAAN’s electrifying 'Battle of the Bands' – Camp Rock! This adrenaline pumping event is not just a platform for seasoned artists but an open invitation for all music enthusiasts. Whether you’re into classic rock, indie vibes, or the latest pop anthems, there’s a spot for every musical tribe. Gather your bandmates, fine-tune your instruments, and hit us with your hottest track! Let the music roar!",
-      src:"/assets/b7.jpg",
-    },
-    {
-      date: "21",
       title: "TARANG",
       subtitle: "(Talent Show for Persons with Disabilities)",
       description: "TARANG is one of the most important events of KAIRAAN that aims to ignite inclusivity and celebrate the artistic spirit of specially-abled individuals. The event explores an array of fun activities, ranging from games to singing and dancing competitions, witnessing exceptional performances. It encourages individuals to go the extra mile by overcoming their reservations and showcasing their true selves. Last year, TARANG observed active participation from schools in and around Bhubaneswar and Cuttack. As an event, it provides an amazing opportunity for its participants to strengthen their interaction with society.",
       src:"/assets/b7.jpg",
     },
     {
-      date: "23",
+      date: "21",
+      title: "Project Runaway",
+      subtitle: "(Fashion Show)",
+      description: `Take a Deep Dive into your closet and dress to impress for Project Runway- where glamour takes centre stage once again! Join us for a night of unparalleled style and runway magic as we showcase the dreamiest looks and trendsetting designs. Be part of the ultimate chic affair and prepare to make every step a statement at Project Runway! Don your heart out on your sleeve and dazzle everyone around with your chicest outfit!`,
+      src:"/assets/b7.jpg",
+    },
+    {
+      date: "22",
+      title: "Camp Rock",
+      subtitle: "(Battle of Bands)",
+      description: "Get ready to unleash the thunder at KAIRAAN’s electrifying 'Battle of the Bands' – Camp Rock! This adrenaline pumping event is not just a platform for seasoned artists but an open invitation for all music enthusiasts. Whether you’re into classic rock, indie vibes, or the latest pop anthems, there’s a spot for every musical tribe. Gather your bandmates, fine-tune your instruments, and hit us with your hottest track! Let the music roar!",
+      src:"/assets/b7.jpg",
+    },
+    {
+      date: "22",
       title: "RANGMANCH",
       subtitle: "(Theatre competition)",
       description: "The vibrant cultural tapestry of KAIRAAN, unfurls its first chapter of Rangmanch, a captivating exploration of the world of theatre arts. This event promises to transport you to a realm of storytelling, expression, and raw human emotions. From thought-provoking skits and monologues to captivating full-length plays, Rangmanch aims to showcase the talent of budding thespians from NLUO and beyond.",
       src:"/assets/b7.jpg",
     },
     {
-      date: "21",
+      date: "22",
       title: "Pitch Perfect",
       subtitle: "(Solo Singing Competition)",
       description: "As the spotlight illuminates the stage, each performer steps into the limelight, ready to mesmerise the audience with their melodious voice. From soothing tunes to upbeat pop anthems, the solo singing performances span across various genres reflecting the diverse musical tastes of the contestants. With every note sung, be the protagonist of your own musical universe, and create an emotional and enchanting atmosphere that captivates everyone.",
@@ -96,13 +103,6 @@ const EventSection = () => {
       title: "High Strung",
       subtitle: "(Group Dance Competition)",
       description: `"High Strung" takes centre stage at our college cultural fest with its exhilarating group dance competition. Here, teams of dancers come together to showcase their collective talent and creativity, setting the floor ablaze with their synchronised moves and infectious energy. At KAIRAAN, we have performances ranging from contemporary fusions to traditional cultural expressions, each telling a captivating story, drawing the audience into a whirlwind of rhythm and motion. With cheers echoing and spirits soaring, "High Strung" transforms the fest into a vibrant celebration of unity and artistry that leaves a lasting impression on all who attend.`,
-      src:"/assets/b7.jpg",
-    },
-    {
-      date: "21",
-      title: "Project Runaway",
-      subtitle: "(Fashion Show)",
-      description: `Take a Deep Dive into your closet and dress to impress for Project Runway- where glamour takes centre stage once again! Join us for a night of unparalleled style and runway magic as we showcase the dreamiest looks and trendsetting designs. Be part of the ultimate chic affair and prepare to make every step a statement at Project Runway! Don your heart out on your sleeve and dazzle everyone around with your chicest outfit!`,
       src:"/assets/b7.jpg",
     }
   ];
