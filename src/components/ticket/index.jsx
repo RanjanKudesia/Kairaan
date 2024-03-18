@@ -61,8 +61,15 @@ const GeneratedTicket = (props) => {
       </div>
 
       <p className="text-white text-center z-30 w-full md:w-1/2 p-2 mt-5">Here is your event ticket. Please have your ticket ready for gate entry. You can choose to either bring a printed copy or show this digital version. All event details are available on our website. We're excited to see you there!</p>
+
+
+      <p className="text-red-600 bg-white text-center z-30 w-full md:w-1/2 p-2 mt-5 rounded-lg">Alcohol is strictly prohibited in NLUO. Persons will be subjected to a breath analyser test at the entrance. If found intoxicated, person(s) will be denied entry and no refund will be provided.</p>
+
     </section>
   );
 };
 
 export default GeneratedTicket;
+
+
+
