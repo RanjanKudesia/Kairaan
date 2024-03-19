@@ -8,6 +8,7 @@ import { LiaPhoneSquareSolid } from "react-icons/lia";
 import Link from "next/link";
 import GallerySlider from "@/components/slider/gallery";
 import EventSection from "@/components/event";
+import UpcomingArtist from "@/components/slider/upcomingArtist";
 
 export default function Homepage() {
   const isMobileScreen = () => {
@@ -84,6 +85,24 @@ export default function Homepage() {
         </div>
       </section>
       {/* Why KAIRAAN? end */}
+
+      {/* Upcoming Artist Start */}
+      <section className="relative z-40 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
+        <h2 className="mb-10 text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left">
+          UPCOMING ARTISTS
+        </h2>
+
+        <div className="justify-center items-center hidden md:flex">
+        <Image src="/assets/upcomingArtist1.png" alt="img" width={500} height={500} className="h-[400px] object-contain"/>
+        <Image src="/assets/upcomingArtist2.png" alt="img" width={500} height={500} className="h-[400px] object-contain"/>
+        <Image src="/assets/upcomingArtist3.png" alt="img" width={500} height={500} className="h-[400px] object-contain"/>
+        </div>
+        <div className="flex md:hidden">
+        <UpcomingArtist/>
+        </div>
+      </section>
+      {/* Upcoming Artist End */}
+
 
       {/* About Events start */}
       {/* <section className="relative z-50 px-[30px] sm:px-[50px] md:px-[100px] lg:px-[150px] xl:px-[200px] py-[50px] w-full min-h-[50vh] flex justify-center items-center flex-col">
