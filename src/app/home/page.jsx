@@ -162,59 +162,109 @@ export default function Homepage() {
         <h2 className="text-3xl leading-[50px] md:text-4xl md:leading-[60px] lg:leading-[70px] lg:text-5xl font-bold text-left">
           Day-wise Schedule
         </h2>
-          <p className="text-2xl leading-10">Coming soon!</p>
-        {/* <table className="border-2 rounded-md border-white text-center mt-10">
-          <thead className="border-2 rounded-md border-white text-xl uppercase">
-            <tr>
-              <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Day 1
-              </th>
-              <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Day 2
-              </th>
-              <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Day 3
-              </th>
-            </tr>
-          </thead>
+          {/* <p className="text-2xl leading-10">Coming soon!</p> */}
+          <table className="border-2 rounded-md border-white text-center mt-10">
+  <thead className="border-2 rounded-md border-white text-xl uppercase">
+    <tr>
+      <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        21.03.2024
+        <br />
+        Day 1
+      </th>
+      <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        22.03.2024
+        <br />
+        Day 2
+      </th>
+      <th className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        23.03.2024
+        <br />
+        Day 3
+      </th>
+    </tr>
+  </thead>
 
-          <tbody>
-            <tr className="border-2 rounded-md border-white">
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Event Name <br /> Time
-              </td>
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Event Name <br /> Time
-              </td>
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Event Name <br /> Time
-              </td>
-            </tr>
-            <tr className="border-2 rounded-md border-white">
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Stand up Performance by __ <br />
-                (6:00 PM – 7:30 PM)
-              </td>
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                DJ Night with DJ __ <br /> (8:00 PM – 10:00 PM)
-              </td>
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Star Night with __ <br /> (10:00 PM – 11:59 PM)
-              </td>
-            </tr>
-            <tr className="border-2 rounded-md border-white">
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Event Name <br /> Time
-              </td>
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Event Name <br /> Time
-              </td>
-              <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
-                Event Name <br /> Time
-              </td>
-            </tr>
-          </tbody>
-        </table> */}
+  <tbody>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Up the Ante Quiz (Inhouse) <br /> 10:30 AM <br /> Seminar Hall
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Pitch Perfect (Solo Singing) <br /> 02:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Antakshari <br /> 02:00 PM <br /> LH 5
+      </td>
+    </tr>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        TARANG <br /> 02:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Step Up (Solo Dance) <br /> 03:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Treasure Hunt <br /> 04:00 PM <br /> LH 5
+      </td>
+    </tr>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        The Buddy Project <br /> 03:00 PM <br /> LH 5
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        High Strung (Group Dance) <br /> 04:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Rangmanch (Theatre) <br /> 05:00 PM <br /> Amphitheatre
+      </td>
+    </tr>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Unplugged <br /> 05:00 PM <br /> Fest Area (Parking lot)
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Camp Rock (Battle of Bands) <br /> 05:30 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Project Runway (Fashion Show) <br /> 06:00 PM <br /> Amphitheatre
+      </td>
+    </tr>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Faculty and Staff Events (In-House) <br /> 06:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Special Performance <br /> 07:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Bharg Live <br /> 07:30 PM <br /> Fest Area (Parking lot)
+      </td>
+    </tr>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Prom (In-House) <br /> 09:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        Dikshant Live <br /> 08:30 PM <br /> Fest Area (Parking lot)
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        DJ Ravator <br /> 10:00 PM <br /> Fest Area (Parking lot)
+      </td>
+    </tr>
+    <tr className="border-2 rounded-md border-white">
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        DJ Satya <br /> 10:00 PM <br /> Amphitheatre
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        DJ Night <br /> 10:30 PM <br /> Fest Area (Parking lot)
+      </td>
+      <td className="border-2 rounded-md border-white py-2 px-4 md:py-4 md:px-16 text-sm md:text-base">
+        {/* Event Name <br /> Time */}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
       </section>
       {/* Day-wise Schedule end */}
 
