@@ -92,14 +92,14 @@ export default function Homepage() {
           UPCOMING ARTISTS
         </h2>
 
-        <div className="justify-center items-center hidden md:flex">
-        <Image src="/assets/upcomingArtist1.png" alt="img" width={500} height={500} className="h-[400px] object-contain"/>
-        <Image src="/assets/upcomingArtist2.png" alt="img" width={500} height={500} className="h-[400px] object-contain"/>
-        <Image src="/assets/upcomingArtist3.png" alt="img" width={500} height={500} className="h-[400px] object-contain"/>
+        <div className="flex justify-center items-center flex-col md:flex-row">
+        <Image src="/assets/upcomingArtist1.png" alt="img" width={500} height={500} className="h-[400px] object-contain m-2 md:m-0"/>
+        <Image src="/assets/upcomingArtist2.png" alt="img" width={500} height={500} className="h-[400px] object-contain m-2 md:m-0"/>
+        <Image src="/assets/upcomingArtist3.png" alt="img" width={500} height={500} className="h-[400px] object-contain m-2 md:m-0"/>
         </div>
-        <div className="flex md:hidden">
+        {/* <div className="flex md:hidden">
         <UpcomingArtist/>
-        </div>
+        </div> */}
       </section>
       {/* Upcoming Artist End */}
 
