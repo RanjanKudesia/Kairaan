@@ -228,6 +228,7 @@ const AdminPage = () => {
                         <tr>
                           <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Name</th>
                           <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Email</th>
+                          <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">College</th>
                         </tr>
                       </thead>
                       {filteredCheckedIn.map(registration => (
@@ -235,6 +236,7 @@ const AdminPage = () => {
                         <tr className="border-2 rounded-md border-white">
                           <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base">{registration.name}</td>
                           <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"> {registration.email}</td>
+                          <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"> {registration.college}</td>
                   
                           
                         </tr>
