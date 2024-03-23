@@ -193,6 +193,8 @@ const AdminPage = () => {
                       <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Name</th>
                       <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Email</th>
                       <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Registartion Code</th>
+                      <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">College</th>
+                      <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Phone</th>
                       <th className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base tracking-wider">Status</th>
                     </tr>
                   </thead>
@@ -202,6 +204,8 @@ const AdminPage = () => {
                       <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base">{registration.name}</td>
                       <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"> {registration.email}</td>
                       <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"> {registration.code}</td>
+                      <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"> {registration.college}</td>
+                      <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"> {registration.phone}</td>
                       <td className="border-2 rounded-md border-white p-2 md:py-4 md:px-16 text-sm md:text-base"><button onClick={() => handleCheckIn(registration.id)} className='bg-[rgba(0,0,0,0.5)] py-2 px-8 rounded-lg'>Check In</button>
                     </td>
                     </tr>
