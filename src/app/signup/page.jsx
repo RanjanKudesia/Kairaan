@@ -95,9 +95,9 @@ const SignupPage = () => {
               </span>
             </div>
   
-            <div className="text-right">
+            {/* <div className="text-right">
               <span className="text-sm cursor-pointer">Forgot Password?</span>
-            </div>
+            </div> */}
             <button
             type="submit"
             className="w-full px-4 py-2 text-[var(--text-color)] bg-transparent border rounded-sm focus:outline-none focus:border-[var(--secondary-color)] flex justify-center items-center focus:bg-[var(--text-color)]"
